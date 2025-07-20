@@ -1,0 +1,47 @@
+# Игнорировать бинарные файлы и объектные файлы:
+*.exe
+*.dll
+*.obj
+*.pdb
+*.suo
+*.user
+*.userprefs
+*.vs/
+*.cache
+
+# Игнорировать временные файлы Visual Studio
+_ReSharper*/
+*.DotSettings.user
+
+# Игнорировать папки `bin` и `obj` (содержат скомпилированный код)
+bin/
+obj/
+[Bb]in/
+[Oo]bj/
+
+# Игнорировать файлы Visual Studio
+*.aps
+*.ilk
+*.log
+*.cachefile
+*.opendb
+*.opensdf
+*.sdf
+*.tlog
+
+# Игнорировать NuGet packages
+packages/
+
+# Игнорировать файлы, созданные Visual Studio Code (если используете)
+.vscode/
+
+# Игнорировать файлы, созданные Rider (если используете)
+.idea/
+
+# Игнорировать файлы операционной системы
+Thumbs.db
+desktop.ini
+
+# Другие файлы, которые не должны попасть в репозиторий (например, файлы с секретами)
+*.config
+*.secrets
