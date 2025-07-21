@@ -14,7 +14,7 @@ builder.Services.AddEndpointsApiExplorer();
 // добавил сваггер
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Your API Name", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "BookAPI", Version = "v1" });
 
     //Optional - Добавление информации об авторизации, если требуется
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -63,13 +63,15 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Your API Name v1");
-        // c.RoutePrefix = string.Empty; // Чтобы Swagger UI открывался в корне приложения
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "BookAPI");
+        c.RoutePrefix = string.Empty; // Чтобы Swagger UI открывался в корне приложения
     });
 }
 
 // добавил эндпоинт для приветствия
-app.MapGet("/api/hello", () => "Hello, REST API!");
+app.MapGet("/api/hello", () => "Hello, Backend!");
+
+app.MapGet("/api/info", () => "This is CRUD API for library");
 
 
 app.UseHttpsRedirection();
