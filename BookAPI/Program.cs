@@ -2,6 +2,7 @@ using Domain.Models;
 using Application.Interfaces; // Импорт интерфейса
 using Application.Services;   // Импорт реализации
 using Microsoft.OpenApi.Models;
+using Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -46,7 +47,10 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddOpenApi();
 
 // добавил BookService
-builder.Services.AddScoped<IBookService, BookService>();
+// builder.Services.AddScoped<IBookService, BookService>();
+
+//добавление сервисов
+builder.Services.AddApplicationServices();
 
 var app = builder.Build();
 
