@@ -15,7 +15,7 @@ namespace Infrastructure.Extensions
         public static IServiceCollection AddDatabaseContext(this IServiceCollection services) 
         {
             services.AddDbContext<BookContext>(options =>
-                options.UseInMemoryDatabase("BookLibraryDb"));
+                options.UseNpgsql("Host=localhost;Port=5432;Database=BookDb;Username=postgres;Password=postgres"));
             return services;
         }
     }

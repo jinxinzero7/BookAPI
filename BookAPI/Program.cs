@@ -1,8 +1,9 @@
 using Domain.Models;
-using Application.Interfaces; // Импорт интерфейса
-using Application.Services;   // Импорт реализации
+using Application.Interfaces;
+using Application.Services;     
 using Microsoft.OpenApi.Models;
 using Application;
+using Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +12,10 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
-// добавил сваггер
+// Добавление контекста БД
+builder.Services.AddDatabaseContext();
+
+// Добавил сваггер
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "BookAPI", Version = "v1" });
