@@ -13,7 +13,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
 // Добавление контекста БД
-builder.Services.AddDatabaseContext();
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDatabaseContext(connectionString);
 
 // Добавление репозиториев
 builder.Services.AddRepositories();

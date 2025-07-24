@@ -10,6 +10,6 @@ namespace Application.Interfaces.Services
 {
     public interface IBookService
     {
-        public List<BookDto> GetBooks();
+        
     }
 }

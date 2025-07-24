@@ -1,4 +1,5 @@
 ﻿using Application.Dtos;
+using Application.Interfaces.Repos;
 using Application.Interfaces.Services;
 using Domain.Models;
 using System;
@@ -11,9 +12,10 @@ namespace Application.Services
 {
     public class BookService : IBookService
     {
-        public List<BookDto> GetBooks()
+        private readonly IBookRepository _bookRepository;
+        public BookService(IBookRepository bookRepository)
         {
-            
+            _bookRepository = bookRepository;
         }
     }
 }

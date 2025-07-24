@@ -14,10 +14,10 @@ namespace Infrastructure.Extensions
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddDatabaseContext(this IServiceCollection services) 
+        public static IServiceCollection AddDatabaseContext(this IServiceCollection services, string connectionString) 
         {
             services.AddDbContext<BookContext>(options =>
-                options.UseNpgsql("Host=localhost;Port=5432;Database=BookDb;Username=postgres;Password=postgres"));
+                options.UseNpgsql(connectionString));
             return services;
         }
 
