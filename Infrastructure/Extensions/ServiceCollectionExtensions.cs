@@ -1,4 +1,6 @@
-﻿using Infrastructure.Database;
+﻿using Application.Interfaces.Repos;
+using Infrastructure.Database;
+using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -16,6 +18,13 @@ namespace Infrastructure.Extensions
         {
             services.AddDbContext<BookContext>(options =>
                 options.UseNpgsql("Host=localhost;Port=5432;Database=BookDb;Username=postgres;Password=postgres"));
+            return services;
+        }
+
+        public static IServiceCollection AddRepositories(this IServiceCollection services)
+        {
+            services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<IAuthorRepository, AuthorRepository>();
             return services;
         }
     }

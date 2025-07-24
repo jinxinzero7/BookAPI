@@ -1,4 +1,5 @@
-﻿using Domain.Models;
+﻿using Application.Interfaces.Repos;
+using Domain.Models;
 using Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Repositories
 {
-    public class AuthorRepository
+    public class AuthorRepository : IAuthorRepository
     {
         private readonly BookContext _context;
 

@@ -15,7 +15,10 @@ builder.Services.AddEndpointsApiExplorer();
 // Добавление контекста БД
 builder.Services.AddDatabaseContext();
 
-// Добавил сваггер
+// Добавление репозиториев
+builder.Services.AddRepositories();
+
+// Добавление сваггер
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "BookAPI", Version = "v1" });
