@@ -1,5 +1,5 @@
 ﻿using Application.Dtos;
-using Application.Interfaces;
+using Application.Interfaces.Services;
 using Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -13,11 +13,7 @@ namespace Application.Services
     {
         public List<BookDto> GetBooks()
         {
-            return new List<BookDto>
-            {
-                new BookDto { Id = Guid.NewGuid(), Title = "Clean Code", Author = "Robert Martin" },
-                new BookDto { Id = Guid.NewGuid(), Title = "CLR via C#", Author = "Jeffrey Richter" }
-            };
+            
         }
     }
 }
