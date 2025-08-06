@@ -30,6 +30,14 @@ namespace Infrastructure.Repositories
             return await _context.Books.Where(b => b.Id == id).FirstOrDefaultAsync();
         }
 
+        public async Task<Book> GetBookByIdWithAuthorAsync(Guid id)
+        {
+            return await _context.Books
+                .Include(b => b.Author)
+                .Where(b => b.Id == id)
+                .FirstOrDefaultAsync();
+        }
+
         public async Task<IEnumerable<Book>> GetAllBooksAsync()
         {
             return await _context.Books.ToListAsync();

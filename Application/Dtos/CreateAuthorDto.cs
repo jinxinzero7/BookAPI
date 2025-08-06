@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Application.Dtos
 {
-    public class CreateBookDto
+    public class CreateAuthorDto
     {
-        public string Title { get; set; }
-        public Guid AuthorId { get; set; }
+        public string Name { get; set; }
+        public string LastName { get; set; }
     }
 }

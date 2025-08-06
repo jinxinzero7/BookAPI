@@ -11,6 +11,7 @@ namespace Application.Interfaces.Repos
     {
         Task<Book> CreateBookAsync(Book book);
         Task<Book> GetBookByIdAsync(Guid id);
+        Task<Book> GetBookByIdWithAuthorAsync(Guid id);
         Task<IEnumerable<Book>> GetAllBooksAsync();
         Task<IEnumerable<Book>> GetBooksByAuthorIdAsync(Guid authorId);
         Task UpdateBookAsync(Book book);

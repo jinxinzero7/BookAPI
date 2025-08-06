@@ -1,6 +1,5 @@
 using Domain.Models;
-using Application.Interfaces;
-using Application.Services;     
+using Application.Interfaces;     
 using Microsoft.OpenApi.Models;
 using Application;
 using Infrastructure.Extensions;
@@ -20,36 +19,7 @@ builder.Services.AddDatabaseContext(connectionString);
 builder.Services.AddRepositories();
 
 // Добавление сваггер
-builder.Services.AddSwaggerGen(c =>
-{
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "BookAPI", Version = "v1" });
-
-    //Optional - Добавление информации об авторизации, если требуется
-    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-    {
-        Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
-        Name = "Authorization",
-        In = ParameterLocation.Header,
-        Type = SecuritySchemeType.Http,
-        Scheme = "bearer",
-        BearerFormat = "JWT"
-    });
-
-    c.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
-        {
-            new OpenApiSecurityScheme
-            {
-                Reference = new OpenApiReference
-                {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer"
-                }
-            },
-            new string[] {}
-        }
-    });
-});
+builder.Services.AddSwaggerGen();
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
